@@ -3,6 +3,8 @@ Movies Browser
 
 A small test project using AngularJS and Bootstrap
 
+Occasionally the movie data can be slow to load, so just wait a bit or refresh.
+
 
 User Experience
 ===============

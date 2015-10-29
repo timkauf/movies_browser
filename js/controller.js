@@ -1,3 +1,6 @@
+// Bootstrap popovers for description, which stopped working at some point.
+// So I went back to fixed description view area
+
 // $(document).ready(function(){
 // 	//Set up the description popover
 // 	$('[data-toggle="popover"]').popover({
@@ -14,7 +17,6 @@ angular.module('movies', []).controller('moviesCtrl', MoviesCtrl);
 
 function MoviesCtrl($scope, $http) {       
 
-	var dataServiceSuccess = false;
 	$scope.description = 'Click a title to see description';
 	$scope.searchTerm = '';
 
@@ -24,10 +26,6 @@ function MoviesCtrl($scope, $http) {
 
 
 	getDataFromService($http);
-	if(dataServiceSuccess) {
-		assertEqual($scope.movies[0].movie_name, "Avengers - Age of Ultron");
-	}
-
 
 	function getDataFromService($http) {
 		//Get JSON data from web service
@@ -37,8 +35,8 @@ function MoviesCtrl($scope, $http) {
 		}).then(function successCallback(response) {
 			$scope.movies = response.data.movies;
 
-			dataServiceSuccess = true;
 			console.log('Data from service received.');
+			assertEqual($scope.movies[0].movie_name, "Avengers - Age of Ultron");
 		}, function errorCallback(response) {
 			//Load data from local file as fallback
 			$scope.movies = movies;
@@ -49,8 +47,7 @@ function MoviesCtrl($scope, $http) {
 
 	function showDescription(index) {
 		descripFrag = "Surprise hit Pitch Perfect";
-		console.log(descripFrag);
-		assertEqual($scope.movies[3].description.substring(0, 26))
+		assertEqual($scope.movies[3].description.substring(0, 26).trim(), descripFrag);
 
 		$scope.description = $scope.movies[index].description;
 	}
