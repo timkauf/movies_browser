@@ -1,5 +1,9 @@
-Movies Browser
+Movie Browser
 ==============
+
+Slalom Silicon Valley Software Engineering
+Coding Exercise #04
+------------------------------------------
 
 A small test project using AngularJS and Bootstrap
 
