@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="movies">
+
+<head>  
+	<title>Movies Now Showing</title>  
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="assets/css/movies.css" rel="stylesheet" />
+</head>
+
+<body>  
+	<div class="container-fluid" ng-controller="moviesCtrl">    
+
+		<div id="mainview">
+
+			<img id="titleicon" src="assets/img/filmroll2.png" width="64px" height="64px" />
+			<h1 id="maintitle" class="fat-underline">Movies On Demand</h1>
+
+			<div id="detailsview" class="row section-box">
+				<div id="searchbox" class="col-sm-4">
+					<input class="form-control input-lg" type="text" placeholder="Search movie info" ng-model="searchTerm" />
+				</div>
+				<div id="details-info" class="col-sm-8">
+					{{description}}
+				</div>
+			</div>
+
+			<div id="listview" class="section-box">
+				<div id="listview" class="row">
+					<div class="col-md-2 col-sm-3 col-xs-4" ng-repeat="movie in movies | filter:searchTerm" >
+						<img class="movie-img" src="{{movie.image_url}}" width="180px" height="267px" />
+						<div class="movie-title">
+							<!-- <h4><a href="#" data-toggle="popover" title="{{movie.movie_name}}" data-content="{{movie.description}}" data-trigger="hover">{{movie.movie_name}}</a></h4> -->
+							<h4><a href="#" ng-click="showDescription($index)">{{movie.movie_name}}</a></h4>
+						</div>
+						Rating: {{movie.rating}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>    
+	
+	<script src="assets/js/angular.min.js"></script>
+	<script src="assets/js/jquery-1.11.3.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="js/controller.js"></script>
+	<script src="js/movies.js"></script>
+</body>
+</html>
