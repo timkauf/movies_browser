@@ -17,7 +17,7 @@
 
 			<div id="detailsview" class="row section-box">
 				<div id="searchbox" class="col-sm-4">
-					<input class="form-control input-lg" type="text" placeholder="Search movie info" ng-model="searchTerm" ng-keypress="clearDescription()" />
+					<input class="form-control input-lg" type="text" placeholder="Search movie info" ng-model="searchTerm" ng-keyup="clearDescription()" />
 				</div>
 				<div id="details-info" class="col-sm-8">
 					{{description}}
