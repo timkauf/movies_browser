@@ -16,9 +16,11 @@ function MoviesCtrl($scope, $http) {
 
 	var dataServiceSuccess = false;
 	$scope.description = 'Click a title to see description';
+	$scope.searchTerm = '';
 
 	$scope.getDataFromService = getDataFromService;
 	$scope.showDescription = showDescription;
+	$scope.clearDescription = clearDescription;
 
 
 	getDataFromService($http);
@@ -51,6 +53,10 @@ function MoviesCtrl($scope, $http) {
 		assertEqual($scope.movies[3].description.substring(0, 26))
 
 		$scope.description = $scope.movies[index].description;
+	}
+
+	function clearDescription() {
+		$scope.description = 'Click a title to see description';
 	}
 
 	function assertEqual(varParam, compParam) {
