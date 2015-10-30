@@ -54,6 +54,7 @@ function MoviesCtrl($scope, $http) {
 	}
 
 	function clearDescription() {
+		$scope.movie_name = '';
 		$scope.description = 'Click a title to see description';
 	}
 
