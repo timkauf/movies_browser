@@ -49,6 +49,7 @@ function MoviesCtrl($scope, $http) {
 		descripFrag = "Surprise hit Pitch Perfect";
 		assertEqual($scope.movies[3].description.substring(0, 26).trim(), descripFrag);
 
+		$scope.movie_name = $scope.movies[index].movie_name;
 		$scope.description = $scope.movies[index].description;
 	}
 
